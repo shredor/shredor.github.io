@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Рим</title>
+	</head>
+	
+	<body>
+		<form action="/">
+			<p>
+			<label for="fn">Name</label><br />
+			<input type="text" id="fn" name="fn"/><br />
+			</p>
+			<p>
+			<label for="mail">Email</label><br />
+			<input type="Mail" id="mail" name="mail"/><br />
+			</p>
+			<p>
+			Sex<br />
+			<label><input type="radio" name="sex" value="male"/> Male</label>
+			<label><input type="radio" name="sex" value="female"/> Female</label><br />
+			</p>
+			<p>
+			Current status:<br />
+			<label><input type="checkbox" name="status" value="Student"/>Student</label><br />
+			<label><input type="checkbox" name="status" value="Employed"/>Employed</label><br />
+			<label><input type="checkbox" name="status" value="Unemployed"/>Unemployed</label><br />
+			</p>
+			<p>
+			Month and Year of birth:<br />
+			<select name="month">
+				<option value="January">Январь</option>
+				<option value="February">Февраль</option>
+				<option value="March">Март</option>
+			</select>
+			<select name="year">
+				<option value="1990">1990</option>
+				<option value="1991">1991</option>
+				<option value="1992">1992</option>
+			</select>
+			</p>
+			<p>
+			Skills and Technologies:<br />
+			<select name="skills" multiple="multiple" size="10">
+				<optgroup label="Tech skills">
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="js">JavaScript</option>
+					<option value="git">Git</option>
+				</optgroup>
+				<optgroup label="Soft skills">
+					<option value="time">Time management</option>
+					<option value="pro">Proactivity</option>
+					<option value="team">Teamwork</option>
+					<option value="lead">Leadership</option>
+				</optgroup>
+			</select><br />
+			</p>
+			<p>
+			Photo:<br />
+			<input type="file" name="file" value="file" /><br/>
+			</p>
+			<p>
+			Comment:<br />
+			<textarea name="comment"  cols="60" rows="10"></textarea><br />
+			</p>
+			<p>
+			<input type="submit" value="Подтвердить"/><br />
+			</p>
+			<p>
+			<input type="reset" value="Стереть"/><br />
+			</p>
+		</form>
+	</body>
+	
+</html>

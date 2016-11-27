@@ -1,0 +1,93 @@
+body {
+    margin:0;
+}
+.comment {
+    width:100%;
+    min-width:600px;
+    margin:0;
+    padding:20px 0;
+    background-image: url(https://raw.githubusercontent.com/shredor/hello-world/master/background.gif);
+    background-size: auto 160%;
+    text-align: center;
+    background-color: #0E141B;
+}
+.comment-header {
+    font-family: calibri;
+    color: #3170A8;
+    text-transform:uppercase;
+    font-size: 40px;
+    margin:0;
+    font-weight: normal;
+}
+.comment-header span {
+    color: #EE8129;
+}
+.comment-block {
+    vertical-align:top;
+    position:relative;
+    display:inline-block;
+    margin:20px 30px;
+    width:400px;
+    text-align:left;
+}
+.comment-photo {
+    display:inline-block;
+    width:100px;
+    height:100px;
+    position:relative;
+    vertical-align:top;
+}
+.comment-photo img {
+    width:100px;
+    height:100px;
+}
+.comment-photo:after {
+    width:20px;
+    height:30px;
+    content:"";
+
+    box-sizing:border-box;
+    border-right:20px solid white;
+    border-top:15px solid transparent;
+    border-bottom:15px solid transparent;
+
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    margin-right:-30px;
+
+
+}
+.comment-message {
+    width:270px;
+    min-height: 100px;
+    display:inline-block;
+    margin:0 0 0 30px;
+    background-color: #fff;
+}
+.comment-message-header {
+    font-family: calibri;
+    font-size:14px;
+    font-style: italic;
+    color: #3070A8;
+    line-height:30px;
+    border-bottom:2px dotted #666666;
+    position:relative;
+    margin:0 10px;
+}
+span.right {
+    display:inline-block;
+    position:absolute;
+    right:0;
+}
+span.marker:before {
+    content:"- "
+}
+.comment-message-text {
+    margin:5px 10px;
+    font-family: calibri;
+    font-size:14px;
+    color: #666666;
+}

@@ -1,0 +1,57 @@
+﻿label[for="red"] {
+  color:red;
+  padding:20px;
+  text-decoration:underline;
+}
+label[for="green"] {
+  color:green;
+  padding:20px;
+  text-decoration:underline;
+}
+label[for="blue"] {
+  color:blue;
+  padding:20px;
+  text-decoration:underline;
+}
+input {
+  display:none
+}
+input[id="red"]:checked ~ label[for="red"] {
+  color:#ff9999;
+}
+input[id="green"]:checked ~ label[for="green"] {
+  color:#99ff99;
+}
+input[id="blue"]:checked ~ label[for="blue"] {
+  color:#9999ff;
+}
+.red {
+  display:inline;
+  color:white;
+  background-color:red;
+  border-radius:7px;
+  padding:3px;
+}
+.green {
+  display:inline;
+  color:white;
+  background-color:green;
+  border-radius:7px;
+  padding:3px;
+}
+.blue {
+  display:inline;
+  color:white;
+  background-color:blue;
+  border-radius:7px;
+  padding:3px;
+}
+input[id="red"]:checked ~ .red {
+  display:none;
+}
+input[id="green"]:checked ~ .green {
+  display:none;
+}
+input[id="blue"]:checked ~ .blue {
+  display:none;
+}
