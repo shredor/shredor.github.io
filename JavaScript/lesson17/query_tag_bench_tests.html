@@ -175,8 +175,8 @@
     function getColByQuery() {
         document.querySelectorAll('p');
         var tempP = document.body.firstElementChild.innerHTML;
-        document.body.firstElementChild.innerHTML = '<p></p>';
-        document.body.firstElementChild.innerHTML = tempP;
+        document.body.firstElementChild.innerHTML = '<p></p>'; // при добавлении <p></p> коллекция обновляется
+        document.body.firstElementChild.innerHTML = tempP;     // без вызова и видна в scope --> метод некорректен
     }
 
     function bench(func) {
