@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    #moving-div {
+        border: 5px groove green;
+        padding: 5px;
+        margin: 10px;
+        background-color: yellow;
+    }
+</style>
+
+Before Before Before
+
+<div id="moving-div">
+    Text Text Text<br>
+    Text Text Text<br>
+</div>
+
+
+After After After
+<input type="button" onclick="start()" value="start">
+<script>
+    function start() {
+
+        var div = document.getElementById('moving-div');
+
+        var newDiv = document.createElement('div');
+        var divStyle = getComputedStyle(div);
+
+        newDiv.style.height = div.offsetHeight + 'px';
+
+        newDiv.style.marginTop = divStyle.marginTop;
+        newDiv.style.marginBottom = divStyle.marginBottom;
+
+        div.parentNode.insertBefore(newDiv, div);
+
+        div.style.position = 'absolute';
+        div.style.right = div.style.top = 0;
+    }
+</script>
+
+</body>
+</html>

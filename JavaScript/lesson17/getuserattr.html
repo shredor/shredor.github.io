@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Получите div в переменную.-->
+<!--Получите значение атрибута "data-widget-name" в переменную.-->
+<!--Выведите его.-->
+<div id="widget" data-widget-name="menu">Выберите жанр</div>
+<script>
+    var div = widget;
+    var userattr = div.getAttribute('data-widget-name');
+    alert(userattr);
+</script>
+
+</body>
+</html>

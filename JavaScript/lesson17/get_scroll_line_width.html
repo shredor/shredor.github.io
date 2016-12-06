@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var div = document.createElement('div');
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+    function getScrollLineWidth(elem) {
+        var width = elem.offsetWidth - elem.clientWidth - elem.style.borderLeft - elem.style.borderRight;
+        alert(width);
+    }
+    document.body.appendChild(div);
+    getScrollLineWidth(div)
+</script>
+
+</body>
+</html>

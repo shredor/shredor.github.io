@@ -190,7 +190,7 @@
             timeToGetByQuery = 0;
     for (var i = 0; i < 1000; i++) {
         timeToGetByTag += bench(getColByTag);
-                timeToGetByQuery += bench(getColByQuery);
+        timeToGetByQuery += bench(getColByQuery);
     }
     alert('Время тестов для getByTag: ' + timeToGetByTag + '\n' +
     'Время тестов для getByQuery: ' + timeToGetByQuery);

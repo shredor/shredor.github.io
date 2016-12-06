@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+
+<input type="button" onclick="clockStart()" value="Start">
+
+<input type="button" onclick="clockStop()" value="Stop">
+<script>
+
+    function clockStart() {
+        if (!document.querySelector('#clock')) {
+            var div = document.createElement('div');
+            div.id = 'clock';
+            document.body.appendChild(div);
+        }
+        clock.classList.add('clock-on');
+        function clockWork() {
+            if (!div.classList.contains('clock-on')) {
+                clearTimeout(timerId);
+                return;
+            }
+            var d = new Date();
+            var h = toXX(d.getHours());
+            var m = toXX(d.getMinutes());
+            var s = toXX(d.getSeconds());
+
+            function toXX(x) {
+                if (x < 10) {
+                    return x = '0' + x;
+                }
+                return x;
+            }
+
+            h = '<span style="color: red">' + h + ':</span>';
+            m = '<span style="color: green">' + m + ':</span>';
+            s = '<span style="color: blue">' + s + '</span>';
+            div.innerHTML = h + m + s;
+        }
+
+        clockWork();
+        var timerId = setTimeout(function newTime() {
+            clockWork();
+            timerId = setTimeout(newTime, 1000)
+        }, 1000);
+    }
+
+    function clockStop() {
+        clock.classList.remove('clock-on')
+    }
+
+
+</script>
+
+</body>
+
+</html>
