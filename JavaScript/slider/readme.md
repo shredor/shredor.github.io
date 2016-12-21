@@ -1,1 +1,1 @@
-Simple VannilaJS endless slider
+Simple VanillaJS endless slider
