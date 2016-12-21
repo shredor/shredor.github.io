@@ -1,0 +1,1 @@
+Simple VannilaJS endless slider
