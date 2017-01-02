@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+<table id="grid">
+    <thead>
+    <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>5</td>
+        <td>Вася</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Петя</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Женя</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Маша</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Илья</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    var trows = document.querySelector('tbody').rows;
+    function sortByType(type, column) {
+        var arr = [];
+        for (var i = 0; i < this.length; i++) {
+            arr[i] = [];
+            for (var j = 0; j < this[i].children.length; j++) {
+                arr[i][j] = this[i].children[j].textContent;
+            }
+        }
+        if (type == 'string') {
+            arr.sort(function(a,b) {
+                a = a[column];
+                b = b[column];
+                return a.localeCompare(b);
+            })
+        } else if (type == 'number') {
+            arr.sort(function(a,b) {
+                a = a[column];
+                b = b[column];
+                return a - b;
+            })
+        }
+        for (var i = 0; i < this.length; i++) {
+            for (var j = 0; j < this[i].children.length; j++) {
+                this[i].children[j].textContent = arr[i][j];
+            }
+        }
+    }
+    function sortTable(e) {
+        if (e.target.tagName != 'TH') {return}
+        sortByType.call(this.querySelector('tbody').rows, e.target.dataset.type, e.target.cellIndex);
+    }
+
+    grid.addEventListener('click', sortTable);
+    grid.classList.add('test');
+    grid.classList.add('test');
+
+</script>
+
+</body>
+
+</html>
+
+
+

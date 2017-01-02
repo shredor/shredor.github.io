@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 2000px;
+            /* подсказка должна работать независимо от прокрутки */
+        }
+        .notice_div {
+            display: inline-block;
+            border: 1px solid #B3C9CE;
+            border-radius: 4px;
+            box-shadow: 3px 3px 7px #B3B3B3;
+            padding: 10px;
+            position: absolute;
+            background-color: #fff;
+            font-family: 'sans-serif', Arial;
+            font-style: italic;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+<button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+<button data-tooltip="HTML<br>подсказка" id="e">Ещё кнопка</button>
+
+<p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+
+<script>
+
+    function getCoords(elem) { // кроме IE8-
+        var box = elem.getBoundingClientRect();
+        return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset,
+            right: box.right + pageXOffset,
+            bottom: box.bottom + pageYOffset
+        };
+    }
+    function createNotice(e) {
+        var noticeText = e.target.getAttribute('data-tooltip');
+        if (!noticeText) {return}
+        var noticeDiv = document.createElement('div');
+        noticeDiv.classList.add('notice_div');
+        noticeDiv.innerHTML = noticeText;
+        document.body.appendChild(noticeDiv);
+
+        var targetCoords = getCoords(e.target);
+        var noticeDivTop = targetCoords.top - noticeDiv.offsetHeight - 5 + 'px';
+        var noticeDivLeft = (targetCoords.left + targetCoords.right) / 2 - noticeDiv.offsetWidth / 2 + 'px';
+        if (parseInt(noticeDivTop) < pageYOffset) {
+            noticeDivTop = targetCoords.bottom + 5 + 'px';
+        }
+        if (parseInt(noticeDivLeft) < pageXOffset) {
+            noticeDivLeft = pageXOffset + 5 + 'px';
+        }
+        noticeDiv.style.top = noticeDivTop;
+        noticeDiv.style.left = noticeDivLeft;
+    }
+    function removeNotice(e) {
+        var noticeText = e.target.getAttribute('data-tooltip');
+        if (!noticeText) {return}
+        var noticeDiv = document.querySelector('.notice_div');
+        document.body.removeChild(noticeDiv)
+    }
+    document.addEventListener('mouseover', createNotice);
+
+    document.addEventListener('mouseout', removeNotice)
+</script>
+
+</body>
+
+</html>

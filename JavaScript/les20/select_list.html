@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .selected {
+            background: #0f0;
+        }
+
+        li {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+Клик на элементе выделяет только его.
+<br> Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
+<br> Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+<br>
+
+<ul>
+    <li>Кристофер Робин</li>
+    <li>Винни-Пух</li>
+    <li>Ослик Иа</li>
+    <li>Мудрая Сова</li>
+    <li>Кролик. Просто кролик.</li>
+</ul>
+
+<script>
+    var lastClicked;
+    function select(e) {
+        if(e.target.tagName != 'LI') {return}
+        var lis = e.target.parentNode.querySelectorAll('li');
+
+        if (!(e.shiftKey || e.ctrlKey || e.metaKey)) {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].classList.remove('selected');
+            }
+            e.target.classList.add('selected');
+            lastClicked = e.target;
+            return;
+        }
+
+        if (e.shiftKey) {
+            lastClicked = lastClicked || lis[0];
+            lastClicked.classList.add('selected');
+            var pos = e.target.compareDocumentPosition(lastClicked);
+
+            if (pos == 4) {
+                while (lastClicked != e.target) {
+                    lastClicked.previousElementSibling.classList.add('selected');
+                    lastClicked = lastClicked.previousElementSibling;
+                }
+                return
+            }
+
+            if (pos == 2) {
+                while (lastClicked != e.target) {
+                    lastClicked.nextElementSibling.classList.add('selected');
+                    lastClicked = lastClicked.nextElementSibling;
+                }
+                return
+            }
+        }
+
+
+        if (e.ctrlKey || e.metaKey) {
+            e.target.classList.toggle('selected');
+            lastClicked = e.target;
+        }
+    }
+    document.addEventListener('click', select);
+
+
+</script>
+
+</body>
+
+</html>
