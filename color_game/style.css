@@ -85,7 +85,3 @@ button:hover:not(.touchable) {
     background-color: steelblue;
 }
 
-button.touchable:active {
-    color: #fff;
-    background-color: steelblue;
-}
