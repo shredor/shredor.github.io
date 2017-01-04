@@ -13,11 +13,24 @@ init();
 function init() {
     setupSquares();
     for (var i = 0; i < modeButtons.length; i++) {
-        modeButtons[i].addEventListener('click', changeMode)
+        modeButtons[i].addEventListener('click', changeMode);
+        modeButtons[i].addEventListener('touchstart', function(event) {
+            if (event.targetTouches.length == 1) {
+                var myclick=event.targetTouches[0];
+                changeMode().bind(myclick);
+            }
+        }, false);
     }
     resetButton.addEventListener('click', reset);
+    resetButton.addEventListener('touchstart', function(event) {
+        if (event.targetTouches.length == 1) {
+            var myclick=event.targetTouches[0];
+            reset().bind(myclick);
+        }
+    }, false);
     reset();
 }
+
 
 function setupSquares() {
     for (i = 0; i < squares.length; i++) {
@@ -32,7 +45,22 @@ function setupSquares() {
                 this.style.backgroundColor = '#232323';
                 messageDisplay.textContent = 'Try Again';
             }
-        })
+        });
+        squares[i].addEventListener('touchstart', function(event) {
+            if (event.targetTouches.length == 1) {
+                var clickedColor = this.style.backgroundColor;
+                if (clickedColor == pickedColor) {
+                    changeColors(pickedColor);
+                    h1.style.backgroundColor = clickedColor;
+                    messageDisplay.textContent = 'Correct';
+                    resetButton.textContent = 'Play Again?';
+                } else {
+                    this.style.backgroundColor = '#232323';
+                    messageDisplay.textContent = 'Try Again';
+                }
+
+            }
+        }, false);
     }
 }
 function changeMode() {
