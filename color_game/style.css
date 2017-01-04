@@ -30,8 +30,6 @@ body {
     padding-bottom: 30%;
     float: left;
     margin:1.66%;
-    -webkit-border-radius:;
-    -moz-border-radius:;
     border-radius: 15%;
     transition: background-color .6s;
 }
@@ -82,7 +80,12 @@ button {
     transition: all .3s;
     outline:none;
 }
-button:hover {
+button:hover:not(.touchable) {
+    color: #fff;
+    background-color: steelblue;
+}
+
+button.touchable:active {
     color: #fff;
     background-color: steelblue;
 }

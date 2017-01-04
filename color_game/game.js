@@ -11,27 +11,22 @@ var colors, pickedColor;
 init();
 
 function init() {
+    addTouchClasses();
     setupSquares();
     for (var i = 0; i < modeButtons.length; i++) {
-        modeButtons[i].addEventListener('click', changeMode);
-        modeButtons[i].addEventListener('touchstart', function(event) {
-            if (event.targetTouches.length == 1) {
-                var myclick=event.targetTouches[0];
-                changeMode().bind(myclick);
-            }
-        }, false);
+        modeButtons[i].addEventListener('click', changeMode)
     }
     resetButton.addEventListener('click', reset);
-    resetButton.addEventListener('touchstart', function(event) {
-        if (event.targetTouches.length == 1) {
-            var myclick=event.targetTouches[0];
-            reset().bind(myclick);
-        }
-    }, false);
     reset();
 }
 
-
+function addTouchClasses() {
+    if (!('ontouchstart' in window)) return;
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.add('touchable')
+    }
+}
 function setupSquares() {
     for (i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', function() {
@@ -45,22 +40,7 @@ function setupSquares() {
                 this.style.backgroundColor = '#232323';
                 messageDisplay.textContent = 'Try Again';
             }
-        });
-        squares[i].addEventListener('touchstart', function(event) {
-            if (event.targetTouches.length == 1) {
-                var clickedColor = this.style.backgroundColor;
-                if (clickedColor == pickedColor) {
-                    changeColors(pickedColor);
-                    h1.style.backgroundColor = clickedColor;
-                    messageDisplay.textContent = 'Correct';
-                    resetButton.textContent = 'Play Again?';
-                } else {
-                    this.style.backgroundColor = '#232323';
-                    messageDisplay.textContent = 'Try Again';
-                }
-
-            }
-        }, false);
+        })
     }
 }
 function changeMode() {
@@ -88,7 +68,6 @@ function reset() {
     for (i = numSquares; i < squares.length; i++) {
         squares[i].style.display = 'none';
     }
-
     h1.style.backgroundColor = '';
 }
 function changeColors(color) {
