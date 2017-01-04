@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Avenir'; /* Гарнитура шрифта */
+    src: local("Avenir-Black"),
+    local("Avenir Black"),
+    url(fonts/Avenir-Black.ttf); /* Путь к файлу со шрифтом */
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Avenir'; /* Гарнитура шрифта */
+    src: local("Avenir-Medium"),
+    local("Avenir Medium"),
+    url(fonts/Avenir-Medium.ttf); /* Путь к файлу со шрифтом */
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Avenir'; /* Гарнитура шрифта */
+    src: local("Avenir-Light"),
+    local("Avenir Light"),
+    url(fonts/Avenir-Light.ttf); /* Путь к файлу со шрифтом */
+    font-weight: 300;
+}
+body {
+    background-color: #232323;
+    margin: 0;
+    font-family:"Avenir", sans-serif;
+}
+.square {
+    width:30%;
+    background-color: purple;
+    padding-bottom: 30%;
+    float: left;
+    margin:1.66%;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius: 15%;
+    transition: background-color .6s;
+}
+#container {
+    margin:20px auto;
+    max-width: 600px;
+}
+h1 {
+    text-align: center;
+    background-color: steelblue;
+    color: #fff;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height:1.1;
+    padding:20px 0;
+}
+
+#stripe {
+    background-color: #fff;
+    height: 30px;
+    text-align: center;
+    color: black;
+}
+
+.selected {
+    color: #fff;
+    background-color: steelblue;
+}
+#colorDisplay {
+    display: block;
+    font-size:200%;
+}
+#message {
+    display: inline-block;
+    width:20%;
+}
+button {
+    font-family: Montserrat, sans-serif;
+    border:none;
+    background: none;
+    text-transform: uppercase;
+    height:100%;
+    font-weight:700;
+    color: steelblue;
+    letter-spacing:1px;
+    font-size:inherit;
+    transition: all .3s;
+    outline:none;
+}
+button:hover {
+    color: #fff;
+    background-color: steelblue;
+}
