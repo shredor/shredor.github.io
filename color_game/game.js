@@ -30,6 +30,7 @@ function addTouchClasses() {
 function setupSquares() {
     for (i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', function() {
+            console.log(messageDisplay, clickedColor, pickedColor)
             var clickedColor = this.style.backgroundColor;
             if (clickedColor == pickedColor) {
                 changeColors(pickedColor);
