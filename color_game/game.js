@@ -7,7 +7,7 @@ var modeButtons = document.querySelectorAll('.mode');
 
 var numSquares = 6;
 var colors, pickedColor;
-$('.square').corner('10px');
+$('.square').corner();
 init();
 
 function init() {
