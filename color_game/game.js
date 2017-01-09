@@ -32,7 +32,7 @@ function setupSquares() {
         squares[i].addEventListener('click', function() {
             var clickedColor = this.style.backgroundColor;
             console.log(messageDisplay, clickedColor, pickedColor);
-            if (clickedColor == pickedColor) {
+            if (clickedColor.replace(/\s/g, '') == pickedColor.replace(/\s/g, '')) {
                 changeColors(pickedColor);
                 h1.style.backgroundColor = clickedColor;
                 messageDisplay.textContent = 'Correct';
