@@ -7,7 +7,6 @@ var modeButtons = document.querySelectorAll('.mode');
 
 var numSquares = 6;
 var colors, pickedColor;
-
 init();
 
 function init() {
@@ -31,7 +30,8 @@ function setupSquares() {
     for (i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', function() {
             var clickedColor = this.style.backgroundColor;
-            if (clickedColor == pickedColor) {
+            console.log(messageDisplay, clickedColor, pickedColor);
+            if (clickedColor.replace(/\s/g, '') == pickedColor.replace(/\s/g, '')) {
                 changeColors(pickedColor);
                 h1.style.backgroundColor = clickedColor;
                 messageDisplay.textContent = 'Correct';
@@ -92,5 +92,4 @@ function randomColor() {
     var b = Math.floor(Math.random() * 256);
     return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
-
 
