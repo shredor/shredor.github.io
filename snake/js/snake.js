@@ -42,7 +42,7 @@ Snake.prototype.createSnakeFieldModel = function () {
 
     for (var i = 1; i <= this.snakeLength; i++) {
         this.snakeFieldModel[1][i].isActive = true;
-        this.snakePoints.push(this.snakeFieldModel[10][i]);
+        this.snakePoints.push(this.snakeFieldModel[1][i]);
     }
 };
 
