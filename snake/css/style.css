@@ -1,0 +1,26 @@
+.snake-table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+.snake_field_container {
+    border:10px solid rgba(76,136,255, .5);
+    display: inline-block;
+}
+
+
+.snake-table-data {
+    width: 3px;
+    height: 3px;
+    border:1px solid rgba(76,136,255, .25);
+}
+.snake-point {
+    background-color: green;
+}
+
+.eatable {
+    background-color: #f00;
+}
+
+.snake-point.failed {
+    background-color: #ffc53c;
+}

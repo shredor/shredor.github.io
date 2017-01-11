@@ -10,7 +10,7 @@ $('ul')
         e.stopPropagation();
     });
 $('input[type="text"]').keypress(function(e) {
-    if (e.which != 13) return;
+    if (e.which != 13 || $(this).val() == '') return;
     var todoText = $(this).val();
     $('ul').append('<li><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + todoText + '</li>');
     $(this).val('');

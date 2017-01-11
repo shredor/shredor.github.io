@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>To Do</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="todo.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+</head>
+<body>
+
+<section>
+    <div class="page-header">
+        <h1>Todo</h1>
+    </div>
+
+    <section>
+        <form action="#" name="new-task" class="task-form">
+            <div class="panel panel-default">
+                <div class="panel-heading">Add task:</div>
+                <div class="panel-body">
+                    <input type="text" name="task" class="task-form__text"/>
+                    <input type="submit" value="Add" class="btn btn-primary"/>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="table__id">#</th>
+            <th class="table__note">Что сделать</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody class="table__body">
+
+        </tbody>
+    </table>
+</section>
+
+</body>
+</html>

@@ -133,4 +133,3 @@ function Slider(selector) {
 
     init();
 }
-
