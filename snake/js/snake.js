@@ -71,7 +71,7 @@ Snake.prototype.move = function () {
     } else {
         this.updateEatablePoint();
         this.snakeLength += 1;
-        this.interval *= 1.05;
+        this.interval *= 0.95;
     }
 
     if (this.nextSteps.length > 1) {
@@ -198,8 +198,8 @@ Snake.prototype.init = function () {
     this.renderSnakeFieldTable();
     this.updateEatablePoint();
     this.snakeInitRender();
-    this.addStep = this.addStep.bind(this); 
-    
+    this.addStep = this.addStep.bind(this);
+
     this.timer = setTimeout(function repeat() {
         __self.snakeMoveAndRender();
         __self.timer = setTimeout(repeat, __self.interval);
