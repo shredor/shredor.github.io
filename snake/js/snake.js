@@ -191,19 +191,25 @@ Snake.prototype.toggleEatableClass = function () {
 // ==============================================
 
 Snake.prototype.init = function () {
+
     var __self = this;
 
     this.createSnakeFieldModel();
     this.renderSnakeFieldTable();
     this.updateEatablePoint();
     this.snakeInitRender();
-
+    this.addStep = this.addStep.bind(this); 
+    
     this.timer = setTimeout(function repeat() {
         __self.snakeMoveAndRender();
         __self.timer = setTimeout(repeat, __self.interval);
     }, this.interval);
 
-    document.body.addEventListener('keydown', this.addStep.bind(this));
+    document.body.addEventListener('keydown', this.addStep);
+};
+
+Snake.prototype.stopEventListeners = function() {
+    document.body.removeEventListener('keydown', this.addStep);
 };
 
 Snake.prototype.addStep = function (e) {
@@ -237,6 +243,7 @@ Snake.prototype.addStep = function (e) {
 
 Snake.prototype.gameOver = function(failedCell) {
     clearTimeout(this.timer);
+    this.stopEventListeners();
     var table = document.querySelector('table');
     var failedCellElement = table.children[failedCell.coords['y'] - 1].children[failedCell.coords['x'] - 1];
     failedCellElement.classList.add('failed');
