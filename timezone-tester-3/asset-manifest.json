@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/timezone-tester-3/static/css/main.4e551f47.chunk.css",
+    "main.js": "/timezone-tester-3/static/js/main.39d98c4d.chunk.js",
+    "main.js.map": "/timezone-tester-3/static/js/main.39d98c4d.chunk.js.map",
+    "runtime~main.js": "/timezone-tester-3/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/timezone-tester-3/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.3c49f788.chunk.js": "/timezone-tester-3/static/js/2.3c49f788.chunk.js",
+    "static/js/2.3c49f788.chunk.js.map": "/timezone-tester-3/static/js/2.3c49f788.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.14bbad9aa521e4d4bd60db621edd3f86.js": "/precache-manifest.14bbad9aa521e4d4bd60db621edd3f86.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.4e551f47.chunk.css.map": "/timezone-tester-3/static/css/main.4e551f47.chunk.css.map"
+  }
+}
